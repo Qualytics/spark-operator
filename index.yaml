@@ -21,7 +21,7 @@ entries:
     created: "2024-03-15T20:37:08.168874675Z"
     description: A Helm chart for Spark on Kubernetes operator
     digest: e83d92b4704344f7eaaef71a6d7e31efbd0285bb1f80674d2b0e4bdf8ce43fc1
-    home: https://github.com/Qualytics/spark-on-k8s-operator
+    home: https://github.com/Qualytics/spark-operator
     keywords:
     - spark
     maintainers:
@@ -29,6 +29,6 @@ entries:
       name: josecsotomorales
     name: spark-operator
     urls:
-    - https://github.com/Qualytics/spark-on-k8s-operator/releases/download/spark-operator-1.2.0/spark-operator-1.2.0.tgz
+    - https://github.com/Qualytics/spark-on-operator/releases/download/spark-operator-1.2.0/spark-operator-1.2.0.tgz
     version: 1.2.0
 generated: "2024-03-22T20:16:30.35749729Z"
