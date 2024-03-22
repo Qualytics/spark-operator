@@ -45,7 +45,7 @@ The following table lists the most recent few versions of the operator.
 
 | Operator Version | API Version | Kubernetes Version | Base Spark Version | Operator Image Tag |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| `v1beta2-1.3.3-3.1.1` | `v1beta2` | 1.16+ | `3.1.1` | `v1beta2-1.3.3-3.1.1` |
+| `v1beta2-1.3.3-3.5.1` | `v1beta2` | 1.25+ | `3.5.1` | `v1beta2-1.3.3-3.5.1` |
 
 When installing using the Helm chart, you can choose to use a specific image tag instead of the default one, using the following option:
 

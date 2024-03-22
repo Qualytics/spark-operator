@@ -94,8 +94,8 @@ spec:
     labels:
       version: 2.3.0
     memory: 512m
-  image: gcr.io/ynli-k8s/spark:v3.1.1
-  mainApplicationFile: local:///opt/spark/examples/jars/spark-examples_2.12-3.1.1.jar
+  image: gcr.io/ynli-k8s/spark:v3.5.1
+  mainApplicationFile: local:///opt/spark/examples/jars/spark-examples_2.12-3.5.1.jar
   mainClass: org.apache.spark.examples.SparkPi
   mode: cluster
   restartPolicy:
