@@ -14,9 +14,9 @@
 # limitations under the License.
 #
 
-ARG SPARK_IMAGE=gcr.io/spark-operator/spark:v3.1.1
+ARG SPARK_IMAGE=spark:3.5.1-scala2.12-java17-ubuntu
 
-FROM golang:1.19.2-alpine as builder
+FROM golang:1.22-alpine as builder
 
 WORKDIR /workspace
 

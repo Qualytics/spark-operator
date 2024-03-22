@@ -25,7 +25,7 @@ For a more detailed guide on how to use, compose, and work with `SparkApplicatio
 To install the operator, use the Helm [chart](../charts/spark-operator-chart).
 
 ```bash
-$ helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-operator
+$ helm repo add spark-operator https://qualytics.github.io/spark-operator
 
 $ helm install my-release spark-operator/spark-operator --namespace spark-operator --create-namespace
 ```
@@ -166,7 +166,7 @@ Refer to the Helm [documentation](https://helm.sh/docs/helm/helm_upgrade/) for m
 
 ## About the Spark Job Namespace
 
-The Spark Job Namespace value defines the namespace(s) where `SparkApplications` can be deployed. The Helm chart value for the Spark Job Namespace is `sparkJobNamespace`, and its default value is `""`, as defined in the Helm chart's [README](../charts/spark-operator-chart/README.md). Note that in the [Kubernetes apimachinery](https://github.com/kubernetes/kubernetes/tree/master/staging/src/k8s.io/apimachinery) project, the constants `NamespaceAll` and `NamespaceNone` are both defined as the empty string. In this case, the empty string represents `NamespaceAll`. When set to `""`, the Spark Operator supports deploying `SparkApplications` to all namespaces. The Helm chart will create a service account in the namespace where the spark-operator is deployed. In order to successfully deploy `SparkApplications`, you will need to ensure the driver pod's service account meets the criteria described in the [service accounts for driver pods](#about-the-service-account-for-driver-pods) section.
+The Spark Job Namespace value defines the namespace(s) where `SparkApplications` can be deployed. The Helm chart value for the Spark Job Namespace is `sparkJobNamespace`, and its default value is `""`, as defined in the Helm chart's [README](../charts/spark-operator-chart/README.md). Note that in the [Kubernetes apimachinery](https://github.com/kubernetes/kubernetes/tree/main/staging/src/k8s.io/apimachinery) project, the constants `NamespaceAll` and `NamespaceNone` are both defined as the empty string. In this case, the empty string represents `NamespaceAll`. When set to `""`, the Spark Operator supports deploying `SparkApplications` to all namespaces. The Helm chart will create a service account in the namespace where the spark-operator is deployed. In order to successfully deploy `SparkApplications`, you will need to ensure the driver pod's service account meets the criteria described in the [service accounts for driver pods](#about-the-service-account-for-driver-pods) section.
 
 if you installed the operator using the Helm chart and overrode the `sparkJobNamespace` to some other, pre-existing namespace, the Helm chart will create the necessary service account and RBAC in the specified namespace.
 

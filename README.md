@@ -1,6 +1,4 @@
-[![Go Report Card](https://goreportcard.com/badge/github.com/GoogleCloudPlatform/spark-on-k8s-operator)](https://goreportcard.com/report/github.com/GoogleCloudPlatform/spark-on-k8s-operator)
-
-**This is not an officially supported Google product.**
+[![Go Report Card](https://goreportcard.com/badge/github.com/qualytics/spark-operator)](https://goreportcard.com/report/github.com/qualytics/spark-operator)
 
 ## Community
 
@@ -28,7 +26,7 @@ Customization of Spark pods, e.g., mounting arbitrary volumes and setting pod af
 The easiest way to install the Kubernetes Operator for Apache Spark is to use the Helm [chart](charts/spark-operator-chart/).
 
 ```bash
-$ helm repo add spark-operator https://googlecloudplatform.github.io/spark-on-k8s-operator
+$ helm repo add spark-operator https://qualytics.github.io/spark-operator
 
 $ helm install my-release spark-operator/spark-operator --namespace spark-operator --create-namespace
 ```
@@ -47,16 +45,7 @@ The following table lists the most recent few versions of the operator.
 
 | Operator Version | API Version | Kubernetes Version | Base Spark Version | Operator Image Tag |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
-| `latest` (master HEAD) | `v1beta2` | 1.13+ | `3.0.0` | `latest` |
 | `v1beta2-1.3.3-3.1.1` | `v1beta2` | 1.16+ | `3.1.1` | `v1beta2-1.3.3-3.1.1` |
-| `v1beta2-1.3.2-3.1.1` | `v1beta2` | 1.16+ | `3.1.1` | `v1beta2-1.3.2-3.1.1` |
-| `v1beta2-1.3.0-3.1.1` | `v1beta2` | 1.16+ | `3.1.1` | `v1beta2-1.3.0-3.1.1` |
-| `v1beta2-1.2.3-3.1.1` | `v1beta2` | 1.13+ | `3.1.1` | `v1beta2-1.2.3-3.1.1` |
-| `v1beta2-1.2.0-3.0.0` | `v1beta2` | 1.13+ | `3.0.0` | `v1beta2-1.2.0-3.0.0` |
-| `v1beta2-1.1.2-2.4.5` | `v1beta2` | 1.13+ | `2.4.5` | `v1beta2-1.1.2-2.4.5` |
-| `v1beta2-1.0.1-2.4.4` | `v1beta2` | 1.13+ | `2.4.4` | `v1beta2-1.0.1-2.4.4` |
-| `v1beta2-1.0.0-2.4.4` | `v1beta2` | 1.13+ | `2.4.4` | `v1beta2-1.0.0-2.4.4` |
-| `v1beta1-0.9.0` | `v1beta1` | 1.13+ | `2.4.0` | `v2.4.0-v1beta1-0.9.0` |
 
 When installing using the Helm chart, you can choose to use a specific image tag instead of the default one, using the following option:
 
@@ -80,7 +69,6 @@ for specifying, running, and surfacing status of Spark applications. For a compl
 
 The Kubernetes Operator for Apache Spark currently supports the following list of features:
 
-* Supports Spark 2.3 and up.
 * Enables declarative application specification and management of applications through custom resources.
 * Automatically runs `spark-submit` on behalf of users for each `SparkApplication` eligible for submission.
 * Provides native [cron](https://en.wikipedia.org/wiki/Cron) support for running scheduled applications.

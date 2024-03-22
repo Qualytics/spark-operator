@@ -21,6 +21,17 @@ jobs:
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
+      - name: Build and Push Spark-Operator Docker Image to github container registry
+        run: |
+          DOCKER_TAG=$(cat charts/spark-operator-chart/Chart.yaml | grep "appVersion: .*" | cut -c13-)
+          docker build -t gcr.io/spark-operator/spark-operator:${DOCKER_TAG} .
+          docker tag gcr.io/spark-operator/spark-operator:${DOCKER_TAG} ghcr.io/qualytics/spark-operator:${DOCKER_TAG}
+          if ! docker pull ghcr.io/qualytics/spark-operator:${DOCKER_TAG}; then
+            docker push ghcr.io/qualytics/spark-operator:${DOCKER_TAG}
+          else
+            echo "Spark-Operator Docker Image alredy exists"
+          fi
+
       - name: Install Helm
         uses: azure/setup-helm@v3
 

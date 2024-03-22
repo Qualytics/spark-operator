@@ -7,7 +7,7 @@ please refer to [Using Spark on Kubernetes Engine to Process Data in BigQuery](h
 A Spark application requires the [GCS](https://cloud.google.com/dataproc/docs/concepts/connectors/cloud-storage) and 
 [BigQuery](https://cloud.google.com/dataproc/docs/concepts/connectors/bigquery) connectors to access GCS and BigQuery 
 using the Hadoop `FileSystem` API. One way to make the connectors available to the driver and executors is to use a 
-custom Spark image with the connectors built-in, as this example [Dockerfile](https://github.com/GoogleCloudPlatform/spark-on-k8s-gcp-examples/blob/master/dockerfiles/spark-gcs/Dockerfile) shows.
+custom Spark image with the connectors built-in, as this example [Dockerfile](https://github.com/qualytics/spark-on-k8s-gcp-examples/blob/main/dockerfiles/spark-gcs/Dockerfile) shows.
 An image built from this Dockerfile is located at `gcr.io/ynli-k8s/spark:v2.3.0-gcs`. 
 
 The connectors require certain Hadoop properties to be set properly to function. Setting Hadoop properties can be done 
@@ -15,7 +15,7 @@ both through a custom Hadoop configuration file, namely, `core-site.xml` in a cu
 section in a `SparkApplication`. The example Dockerfile mentioned above shows the use of a custom `core-site.xml` and a 
 custom `spark-env.sh` that points the environment variable `HADOOP_CONF_DIR` to the directory in the container where 
 `core-site.xml` is located. The example `core-site.xml` and `spark-env.sh` can be found 
-[here](https://github.com/GoogleCloudPlatform/spark-on-k8s-gcp-examples/tree/master/conf).
+[here](https://github.com/qualytics/spark-on-k8s-gcp-examples/tree/main/conf).
 
 The GCS and BigQuery connectors need to authenticate with the GCS and BigQuery services before they can use the services.
 The connectors support using a [GCP service account JSON key file](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) 
