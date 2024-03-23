@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  spark-operator:
+  - apiVersion: v2
+    appVersion: v1beta2-1.3.8-3.5.1
+    created: "2024-03-23T03:20:11.454128738Z"
+    description: A Helm chart for Spark on Kubernetes operator
+    digest: 1a8ff0fe95f3de172706c995b693c77420f40bbd93b61234d93bdc8d025e95b8
+    home: https://github.com/Qualytics/spark-operator
+    keywords:
+    - spark
+    maintainers:
+    - email: jose@qualytics.ai
+      name: josecsotomorales
+    name: spark-operator
+    urls:
+    - https://github.com/Qualytics/spark-operator/releases/download/spark-operator-1.4.0/spark-operator-1.4.0.tgz
+    version: 1.4.0
+generated: "2024-03-23T03:20:11.454139278Z"
