@@ -98,12 +98,6 @@ spec:
                 description: Deps captures all possible types of dependencies of a
                   Spark application.
                 properties:
-                  archives:
-                    description: Archives is a list of archives to be extracted into
-                      the working directory of each executor.
-                    items:
-                      type: string
-                    type: array
                   excludePackages:
                     description: |-
                       ExcludePackages is a list of "groupId:artifactId", to exclude while resolving the
@@ -11475,7 +11469,6 @@ spec:
             required:
             - driver
             - executor
-            - mainApplicationFile
             - sparkVersion
             - type
             type: object
@@ -11556,9 +11549,6 @@ spec:
             required:
             - driverInfo
             type: object
-        required:
-        - metadata
-        - spec
         type: object
     served: true
     storage: true

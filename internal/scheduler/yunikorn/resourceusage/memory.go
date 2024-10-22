@@ -84,26 +84,10 @@ func executorPysparkMemoryBytes(app *v1beta2.SparkApplication) (int64, error) {
 
 	pysparkMemoryBytes, err := byteStringAsBytes(pysparkMemory)
 	if err != nil {
-		return 0, err
+		return 0, nil
 	}
 
 	return pysparkMemoryBytes, nil
-}
-
-func sparkOffHeapMemoryBytes(app *v1beta2.SparkApplication) (int64, error) {
-	offHeapMemoryEnabled, found := app.Spec.SparkConf["spark.memory.offHeap.enabled"]
-	if !found || offHeapMemoryEnabled == "false" {
-		return 0, nil
-	}
-	offHeapSize, found := app.Spec.SparkConf["spark.memory.offHeap.size"]
-	if !found {
-		return 0, nil
-	}
-	offHeapBytes, err := byteStringAsBytes(offHeapSize)
-	if err != nil {
-		return 0, err
-	}
-	return offHeapBytes, nil
 }
 
 func bytesToMi(b int64) string {
@@ -144,11 +128,6 @@ func executorMemoryRequest(app *v1beta2.SparkApplication) (string, error) {
 		return "", err
 	}
 
-	offHeapBytes, err := sparkOffHeapMemoryBytes(app)
-	if err != nil {
-		return "", err
-	}
-
 	// See comment above in driver
-	return bytesToMi(requestBytes + pysparkMemoryBytes + offHeapBytes), nil
+	return bytesToMi(requestBytes + pysparkMemoryBytes), nil
 }

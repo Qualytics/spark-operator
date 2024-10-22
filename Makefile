@@ -52,7 +52,6 @@ LOCALBIN ?= $(shell pwd)/bin
 KUSTOMIZE_VERSION ?= v5.4.1
 CONTROLLER_TOOLS_VERSION ?= v0.15.0
 KIND_VERSION ?= v0.23.0
-KIND_K8S_VERSION ?= v1.29.3
 ENVTEST_VERSION ?= release-0.18
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
 ENVTEST_K8S_VERSION ?= 1.29.3
@@ -250,20 +249,15 @@ endif
 .PHONY: kind-create-cluster
 kind-create-cluster: kind ## Create a kind cluster for integration tests.
 	if ! $(KIND) get clusters 2>/dev/null | grep -q "^$(KIND_CLUSTER_NAME)$$"; then \
-		$(KIND) create cluster \
-			--name $(KIND_CLUSTER_NAME) \
-			--config $(KIND_CONFIG_FILE) \
-			--image kindest/node:$(KIND_K8S_VERSION) \
-			--kubeconfig $(KIND_KUBE_CONFIG) \
-			--wait=1m; \
+		kind create cluster --name $(KIND_CLUSTER_NAME) --config $(KIND_CONFIG_FILE) --kubeconfig $(KIND_KUBE_CONFIG) --wait=1m; \
 	fi
 
 .PHONY: kind-load-image
 kind-load-image: kind-create-cluster docker-build ## Load the image into the kind cluster.
 	$(KIND) load docker-image --name $(KIND_CLUSTER_NAME) $(IMAGE)
 
-.PHONY: kind-delete-cluster
-kind-delete-cluster: kind ## Delete the created kind cluster.
+.PHONY: kind-delete-custer
+kind-delete-custer: kind ## Delete the created kind cluster.
 	$(KIND) delete cluster --name $(KIND_CLUSTER_NAME) --kubeconfig $(KIND_KUBE_CONFIG)
 
 .PHONY: install

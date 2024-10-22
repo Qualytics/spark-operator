@@ -64,7 +64,9 @@ spec:
         {{- end }}
         {{- end }}
         - --controller-threads={{ .Values.controller.workers }}
-        - --enable-ui-service={{ .Values.controller.uiService.enable }}
+        {{- with .Values.controller.uiService.enable }}
+        - --enable-ui-service=true
+        {{- end }}
         {{- if .Values.controller.uiIngress.enable }}
         {{- with .Values.controller.uiIngress.urlFormat }}
         - --ingress-url-format={{ . }}

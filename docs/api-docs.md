@@ -265,18 +265,6 @@ dependencies provided in Packages to avoid dependency conflicts.</p>
 given with the &ldquo;packages&rdquo; option.</p>
 </td>
 </tr>
-<tr>
-<td>
-<code>archives</code><br/>
-<em>
-[]string
-</em>
-</td>
-<td>
-<em>(Optional)</em>
-<p>Archives is a list of archives to be extracted into the working directory of each executor.</p>
-</td>
-</tr>
 </tbody>
 </table>
 <h3 id="sparkoperator.k8s.io/v1beta2.DeployMode">DeployMode
@@ -1913,6 +1901,7 @@ string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>MainFile is the path to a bundled JAR, Python, or R file of the application.</p>
 </td>
 </tr>
@@ -2354,6 +2343,7 @@ string
 </em>
 </td>
 <td>
+<em>(Optional)</em>
 <p>MainFile is the path to a bundled JAR, Python, or R file of the application.</p>
 </td>
 </tr>
